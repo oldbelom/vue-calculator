@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Vue Calculator</title>
 </head>
 <body>
-  
-</body>
+  <div id="app">
+    <div class="grid">
+      <input @keyup.enter="calc()" @keyup.delete="reset()" v-model="result" tabindex="0" type="text" placeholder="0">
+      <button class="cell num" v-on:click="input(num)" v-for="num in numbers">{{ num }}</button>
+      <button class="cell op" @click="input(op)" v-for="op in operations">{{ op }}</button>
+      <button class="cell op" @click="reset()">C</button>
+      <button class="cell op" @click="calc()">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>    
+</body> 
 </html>
